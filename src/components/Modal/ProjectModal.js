@@ -10,21 +10,14 @@ const ProjectModal = props =>{
     const [description, setDescription] = useState('');
     const [tag, setTag] = useState('');
     const dispatch = useDispatch();
-    const submitHandler = useCallback(() => {
+    const submitHandler = async() => {
         //console.log('Submitting!!');
-        dispatch(
+        await dispatch(
             projectsActions.createProject(pname,description,tag)
         );
-    },[]);
-
-    // useEffect(()=>{
-    //     props.navigation.setParams({'submit': submitHandler});
-    // }, [submitHandler]);
-
-    // const submitFn = navigation.getParam('submit');
-    // const submitFn = navData => {
-    //     navData.navigation.getParam('submit')
-    // };
+        props.closeModal()
+    };
+    
     return(
         <Modal
             animationType='fade'
