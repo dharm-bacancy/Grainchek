@@ -7,8 +7,9 @@ import {useSelector,useDispatch} from 'react-redux';
 import * as projectsAction from '../../store/actions/projects';
 
 const ProjectScreen = props =>{
-    const userProject = useSelector(state => state.projects);
+    const userProject = useSelector(state => state.projects.userProject);
     const dispatch = useDispatch();
+    console.log(userProject);
     return(
         <View>
             <View style={styles.projectHeader}>
