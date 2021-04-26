@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'; 
 import SignInScreen, {screenOptions as SignInScreenOptions} from '../screens/Auth/SignInScreen';
-import ProjectScreen, {screenOptions as ProjectScreenOptions} from '../screens/ProjectScreen';
+import ProjectScreen, {screenOptions as ProjectScreenOptions} from '../screens/Project/ProjectScreen';
 
 const stack = createStackNavigator();
 
