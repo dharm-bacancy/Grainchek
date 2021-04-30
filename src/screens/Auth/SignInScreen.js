@@ -76,7 +76,7 @@ const SignInScreen = props => {
             setError(err.message);
             setIsloading(false);
         }
-        console.log(error)
+        //console.log(error)
     };
 
     const inputChageHandler = useCallback((inputIdentifier, inputValue, inputValidity) => {

@@ -1,9 +1,12 @@
 import Project from "../../model/project";
-import { CREATE_PROJECT } from "../actions/projects";
+import { CREATE_PROJECT, DELETE_PROJECT, LOAD_PROJECTS } from "../actions/projects";
 
 const initialState ={
+    pageNo : 1,
     availableProject: [],
-    userProject: []
+    userProject: [],
+    completedProjects : [],
+    projects : [],
 };
 
 export default (state = initialState, action) => {
@@ -14,11 +17,27 @@ export default (state = initialState, action) => {
                 action.projectData.description, 
                 action.projectData.tag
             );
-            //console.log(action.projectData.pname, action.projectData.description,action.projectData.tag);
             return {
-                //...state,
+                ...state,
                 availableProject: state.availableProject.concat(newProject),
                 userProject: state.userProject.concat(newProject)
+            };
+        case DELETE_PROJECT:
+            return{
+                ...state,
+                userProject:state.userProject.filter(
+                    project => project.pname !== action.pName
+                ),
+                availableProject:state.availableProject.filter(
+                    project => project.pname !== action.pName
+                )
+            };
+        case LOAD_PROJECTS:
+            return {
+                ...state,
+                pageNo : state.pageNo + 1,
+                projects : [...state.projects , ...action.projects] ,
+                completedProjects : state.completedProjects,
             };
     }
     

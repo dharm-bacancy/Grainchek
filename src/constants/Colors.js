@@ -6,5 +6,6 @@ export default {
     black:'#000000',
     gray:'#808080',
     transparent:'#000000aa',
-    cyan:'#00FFFF'
+    cyan:'#00FFFF',
+    red:'#FF0000'
 };
